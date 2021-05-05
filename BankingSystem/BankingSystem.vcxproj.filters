@@ -24,33 +24,33 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="BankingSystem.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="User.cpp">
+    <ClCompile Include="src\Services\DatabaseService.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DatabaseService.cpp">
-      <Filter>Source Files\Services</Filter>
+    <ClCompile Include="src\Services\FileService.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FileService.cpp">
-      <Filter>Source Files\Services</Filter>
+    <ClCompile Include="src\BankAccount.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="BankAccount.cpp">
+    <ClCompile Include="src\User.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="User.h">
+    <ClInclude Include="include\Services\DatabaseService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FileService.h">
-      <Filter>Header Files\Services</Filter>
+    <ClInclude Include="include\Services\FileService.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DatabaseService.h">
-      <Filter>Header Files\Services</Filter>
+    <ClInclude Include="include\BankAccount.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="BankAccount.h">
+    <ClInclude Include="include\User.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

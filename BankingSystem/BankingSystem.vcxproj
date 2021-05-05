@@ -18,6 +18,19 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\BankAccount.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\Services\DatabaseService.cpp" />
+    <ClCompile Include="src\Services\FileService.cpp" />
+    <ClCompile Include="src\User.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\BankAccount.h" />
+    <ClInclude Include="include\Services\DatabaseService.h" />
+    <ClInclude Include="include\Services\FileService.h" />
+    <ClInclude Include="include\User.h" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <ProjectGuid>{6C06AB87-3741-4786-B873-574FB0181E12}</ProjectGuid>
@@ -72,12 +85,18 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <SourcePath>$(ProjectDir)src;$(SourcePath)</SourcePath>
+    <LibraryPath>$(ProjectDir)libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <SourcePath>$(ProjectDir)src;$(SourcePath)</SourcePath>
+    <LibraryPath>$(ProjectDir)libs;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LinkIncremental>false</LinkIncremental>
@@ -146,19 +165,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="BankAccount.cpp" />
-    <ClCompile Include="BankingSystem.cpp" />
-    <ClCompile Include="DatabaseService.cpp" />
-    <ClCompile Include="FileService.cpp" />
-    <ClCompile Include="User.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="BankAccount.h" />
-    <ClInclude Include="DatabaseService.h" />
-    <ClInclude Include="FileService.h" />
-    <ClInclude Include="User.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
