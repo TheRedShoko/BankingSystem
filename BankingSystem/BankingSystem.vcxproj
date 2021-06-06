@@ -19,17 +19,29 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\BankCard.cpp" />
+    <ClCompile Include="include\User\SystemAccount.cpp" />
+    <ClCompile Include="src\Utils\Date.cpp" />
+    <ClCompile Include="include\User\SystemAccount.h" />
+    <ClCompile Include="src\User\Client.cpp" />
+    <ClCompile Include="src\User\BankEmployee.cpp" />
+    <ClCompile Include="src\User\Administrator.cpp" />
     <ClCompile Include="src\BankAccount.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\Services\DatabaseService.cpp" />
     <ClCompile Include="src\Services\FileService.cpp" />
-    <ClCompile Include="src\User.cpp" />
+    <ClCompile Include="src\User\Person.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\BankCard.h" />
+    <ClInclude Include="include\Utils\Date.h" />
+    <ClInclude Include="include\User\Client.h" />
+    <ClInclude Include="include\User\BankEmployee.h" />
+    <ClInclude Include="include\User\Administrator.h" />
     <ClInclude Include="include\BankAccount.h" />
     <ClInclude Include="include\Services\DatabaseService.h" />
     <ClInclude Include="include\Services\FileService.h" />
-    <ClInclude Include="include\User.h" />
+    <ClInclude Include="include\User\Person.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -91,6 +103,9 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
+    <IncludePath>$(ProjectDir)include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(ProjectDir)libs;$(LibraryPath)</LibraryPath>
+    <SourcePath>$(ProjectDir)src;$(SourcePath)</SourcePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
