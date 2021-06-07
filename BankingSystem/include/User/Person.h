@@ -1,6 +1,8 @@
 #pragma once
 #include <string>
 #include "Utils/Date.h"
+#include "Utils/StringEscaper.h"
+
 class Person
 {
 protected:
@@ -14,6 +16,11 @@ protected:
 
 	Person() = default;
 public:
+	virtual ~Person() = default;
+	Person(std::string idn, std::string firstName, std::string middleName, std::string lastName, std::string dateOfBirth, std::string phone, std::string address);
+	
 	virtual std::string ToString();
+	virtual std::string ToEscapedString();
+	std::string GetIDN() const;
 };
 

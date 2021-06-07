@@ -8,6 +8,10 @@ FileService::FileService(std::string fileName) : file(fileName)
 {
 }
 
+FileService::FileService(std::string fileName, std::ios_base::openmode mode) : file(fileName, mode)
+{
+}
+
 FileService::~FileService()
 {
 	if (this->file.is_open())

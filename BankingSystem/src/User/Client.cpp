@@ -1,40 +1,33 @@
 #include "User/Client.h"
+#include <sstream>
 
 void Client::parseClientFromString(std::string s)
 {
-	size_t end = s.find(" ");
-	size_t start = 0;
-
-	this->idn = s.substr(start, end);
-
-	start = end + 1;
-	end = s.find(" ", start);
-
-	this->firstName = s.substr(start, end);
-
-	start = end + 1;
-	end = s.find(" ", start);
-
-	this->middleName = s.substr(start, end);
-
-	start = end + 1;
-	end = s.find(" ", start);
-
-	this->lastName = s.substr(start, end);
-
-	start = end + 1;
-	end = s.find(" ", start);
-
-	this->birthDate.SetDateFromString(s.substr(start, end));
-
-	start = end + 1;
-	end = s.find(" ", start);
-
-	this->phoneNumber = s.substr(start, end);
-	this->address = s.substr(end + 1);
+	std::stringstream stream(s);
+	std::string bDay;
+	stream >> this->idn >> this->firstName >> this->middleName >> this->lastName >> bDay >> this->phoneNumber >> this->address;
+	this->birthDate.SetDateFromString(bDay);
 }
 
 Client::Client(std::string clientString)
 {
 	this->parseClientFromString(clientString);
+}
+
+void Client::AddBankAccount(BankAccount account)
+{
+	this->bankAccounts.push_back(account);
+}
+
+void Client::AddCardToAccount(std::string account, BankCard card)
+{
+	for (size_t i = 0; i < this->bankAccounts.size(); i++)
+	{
+		if (this->bankAccounts[i] == account)
+		{
+			this->bankAccounts[i].AddCard(card);
+
+			break;
+		}
+	}
 }

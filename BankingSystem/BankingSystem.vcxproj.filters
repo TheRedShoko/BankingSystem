@@ -54,10 +54,10 @@
     <ClCompile Include="src\Utils\Date.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="include\User\SystemAccount.cpp">
+    <ClCompile Include="src\BankCard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\BankCard.cpp">
+    <ClCompile Include="src\Utils\StringEscaper.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -87,6 +87,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\BankCard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Utils\StringEscaper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

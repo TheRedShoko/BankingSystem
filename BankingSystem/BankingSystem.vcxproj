@@ -20,7 +20,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\BankCard.cpp" />
-    <ClCompile Include="include\User\SystemAccount.cpp" />
     <ClCompile Include="src\Utils\Date.cpp" />
     <ClCompile Include="include\User\SystemAccount.h" />
     <ClCompile Include="src\User\Client.cpp" />
@@ -31,6 +30,7 @@
     <ClCompile Include="src\Services\DatabaseService.cpp" />
     <ClCompile Include="src\Services\FileService.cpp" />
     <ClCompile Include="src\User\Person.cpp" />
+    <ClCompile Include="src\Utils\StringEscaper.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\BankCard.h" />
@@ -42,6 +42,7 @@
     <ClInclude Include="include\Services\DatabaseService.h" />
     <ClInclude Include="include\Services\FileService.h" />
     <ClInclude Include="include\User\Person.h" />
+    <ClInclude Include="include\Utils\StringEscaper.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -138,6 +139,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
