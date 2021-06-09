@@ -10,9 +10,24 @@ void BankCard::parseFromString(std::string s)
 	this->PIN = s.substr(end + 1);
 }
 
+BankCard::BankCard(std::string account, std::string serialNumber, std::string PIN)
+	: accountNumber(account), serialNumber(serialNumber), PIN(PIN)
+{
+}
+
 BankCard::BankCard(std::string from_string)
 {
 	this->parseFromString(from_string);
+}
+
+bool BankCard::operator==(const std::string& other) const
+{
+	return this->serialNumber == other;
+}
+
+bool BankCard::operator==(const BankCard& other) const
+{
+	return this->serialNumber == other.serialNumber;
 }
 
 std::string BankCard::GetAccountNumber() const

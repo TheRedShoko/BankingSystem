@@ -10,7 +10,8 @@ public:
 	Administrator(std::string username, std::string password);
 	Administrator(std::string from_string);
 
-	BankEmployee CreateEmployee() const;
+	void CreateEmployee() const;
+	void DeleteEmployee() const;
 
 	std::string ToString() const;
 };

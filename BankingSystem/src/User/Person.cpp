@@ -1,8 +1,13 @@
 #include "User/Person.h"
+#include "Utils/Validator.h"
 
 Person::Person(std::string idn, std::string firstName, std::string middleName, std::string lastName, std::string dateOfBirth, std::string phone, std::string address)
 	:idn(idn), firstName(firstName), middleName(middleName), lastName(lastName), birthDate(dateOfBirth), phoneNumber(phone), address(address)
 {
+	if (!Validator::IsValidIDN(idn))
+	{
+		throw std::exception("Invalid UID provided!");
+	}
 }
 
 std::string Person::ToString()

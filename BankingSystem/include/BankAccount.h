@@ -14,6 +14,7 @@ private:
 
 	void parseAccountFromString(std::string s);
 public:
+	BankAccount(std::string accNumber, double amount);
 	BankAccount(std::string account_as_string);
 
 	bool operator==(const std::string& other) const;

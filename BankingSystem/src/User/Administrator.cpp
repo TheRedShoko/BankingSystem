@@ -1,12 +1,14 @@
 #include "User/Administrator.h"
 #include <iostream>
+#include "Services/IOService.h"
+#include "Services/DatabaseService.h"
 
 
 void Administrator::parseFromString(std::string s)
 {
 	size_t delim = s.find(" ");
 	this->authorizationKey = s.substr(0, delim);
-	this->authorizationPassword = std::stod(s.substr(delim + 1));
+	this->authorizationPassword = s.substr(delim + 1);
 }
 
 Administrator::Administrator(std::string username, std::string password)
@@ -20,44 +22,33 @@ Administrator::Administrator(std::string from_string)
 	this->parseFromString(from_string);
 }
 
-BankEmployee Administrator::CreateEmployee() const
+void Administrator::CreateEmployee() const
 {
 	std::string username, password, idn, firstName, middleName, lastName, dateOfBirth, phoneNumber, address;
 
-	// TODO: Dependency
-	std::cout << "Input username: ";
-	std::cin >> username;
+	IOService::ReadString("Input username:", username);
+	IOService::ReadString("Input password:", password);
+	IOService::ReadString("Input UID:", idn);
+	IOService::ReadLine("Input First name:", firstName);
+	IOService::ReadLine("Input Middle name:", middleName);
+	IOService::ReadLine("Input Last name:", lastName);
+	IOService::ReadString("Input date of birth (dd/MM/yyyy):", dateOfBirth);
+	IOService::ReadString("Input phone number:", phoneNumber);
+	IOService::ReadLine("Input address:", address);
 
-	std::cout << "Input password: ";
-	std::cin >> password;
+	this->dbContext->AddEmployee(username, password, idn, firstName, middleName, lastName, dateOfBirth, phoneNumber, address);
 
-	std::cout << "Input UID: ";
-	std::cin >> idn;
+	IOService::WriteLine("Employee added successfully!");
+}
 
-	std::cin.ignore();
+void Administrator::DeleteEmployee() const
+{
+	std::string idn;
+	IOService::ReadString("Input UID:", idn);
 
-	std::cout << "Input First name: ";
-	getline(std::cin, firstName);
-	
-	std::cout << "Input Middle name: ";
-	getline(std::cin, middleName);
+	this->dbContext->DeleteEmployee(idn);
 
-	std::cout << "Input Last name: ";
-	getline(std::cin, lastName);
-
-	std::cout << "Input date of birth (dd/MM/yyyy): ";
-	std::cin >> dateOfBirth;
-
-	std::cout << "Input phone number: ";
-	std::cin >> phoneNumber;
-	
-	std::cin.ignore();
-
-	std::cout << "Input address: ";
-	getline(std::cin, address);
-
-	// TODO
-	return BankEmployee("");
+	IOService::WriteLine("Employee deleted successfuly!");
 }
 
 std::string Administrator::ToString() const

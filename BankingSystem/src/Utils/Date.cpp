@@ -1,61 +1,33 @@
 #include "Utils\Date.h"
-
-bool Date::isLeapYear(unsigned int year)
-{
-    return ((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0)));
-}
+#include "Utils\Validator.h"
 
 void Date::parseDate(std::string date_as_string)
 {
+    unsigned short date, month;
+    unsigned int year;
+
     size_t endPos = date_as_string.find('/');
-    this->date = stoi(date_as_string.substr(0, endPos));
+    date = stoi(date_as_string.substr(0, endPos));
 
     size_t startPos = endPos + 1;
     endPos = date_as_string.find('/', startPos);
-    this->month = stoi(date_as_string.substr(startPos, endPos));
+    month = stoi(date_as_string.substr(startPos, endPos));
 
-    this->year = stoi(date_as_string.substr(endPos + 1));
-}
+    year = stoi(date_as_string.substr(endPos + 1));
 
-bool Date::isValidDate(unsigned int year, unsigned short month, unsigned short date)
-{
-    if (year > 9999 || year < 1)
+    if (!Validator::IsValidDate(year, month, date))
     {
-        return false;
-    }
-        
-    if (month < 1 || month > 12)
-    {
-        return false;
-    }
-        
-    if (date < 1 || date > 31)
-    {
-        return false;
-    }
-        
-    if (month == 2)
-    {
-        if (isLeapYear(year))
-        {
-            return (date <= 29);
-        }
-            
-        return (date <= 28);
+        throw std::exception("Invalid date provided!");
     }
 
-    if (month == 4 || month == 6 || month == 9 || month == 11)
-    {
-       return (date <= 30);
-    }
-        
-
-    return true;
+    this->year = year;
+    this->month = month;
+    this->date = date;
 }
 
 Date::Date(unsigned int year, unsigned short month, unsigned short date)
 {
-    if (!isValidDate(year, month, date))
+    if (!Validator::IsValidDate(year, month, date))
     {
         throw std::exception("Invalid date provided!");
     }

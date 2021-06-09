@@ -26,7 +26,19 @@ private:
 public:
 	~DatabaseService();
 	DatabaseService();
+	
 	void AddAdministrator(std::string username, std::string password);
+
 	void AddEmployee(std::string username, std::string password, std::string idn, std::string firstName, std::string middleName, std::string lastName, std::string dateOfBirth, std::string phoneNumber, std::string address);
+	void DeleteEmployee(std::string idn);
+
+	void AddClient(std::string idn, std::string firstName, std::string middleName, std::string lastName, std::string dateOfBirth, std::string phoneNumber, std::string address);
+	void DeleteClient(std::string idn);
+	std::string AddBankAccount(std::string idn, double deposit);
+	void DeleteBankAccount(std::string idn, std::string account);
+	std::string AddCard(std::string idn, std::string account);
+	void DeleteCard(std::string idn, std::string card);
+	std::string AllClientsReport();
+	std::string IndividualClientReport(std::string idn);
 };
 

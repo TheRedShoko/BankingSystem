@@ -7,6 +7,11 @@ void BankAccount::parseAccountFromString(std::string s)
 	this->amount = std::stod(s.substr(delim + 1));
 }
 
+BankAccount::BankAccount(std::string accNumber, double amount)
+	:serialNumber(accNumber), amount(amount)
+{
+}
+
 BankAccount::BankAccount(std::string account_as_string)
 {
 	this->parseAccountFromString(account_as_string);
