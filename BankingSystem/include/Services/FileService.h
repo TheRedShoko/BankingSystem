@@ -11,6 +11,7 @@ public:
 	FileService(std::string fileName);
 	FileService(std::string fileName, std::ios_base::openmode mode);
 	~FileService();
+	static void CreateFolder(std::string folder);
 	void ChangeOpenedFile(std::string fileName);
 	std::string ReadLine(unsigned int lineNumber);
 	bool ReadNextLine(std::string& output);

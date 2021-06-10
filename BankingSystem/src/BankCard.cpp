@@ -5,7 +5,7 @@ void BankCard::parseFromString(std::string s)
 	size_t delim = s.find(" ");
 	this->accountNumber = s.substr(0, delim);
 	size_t end = s.find(" ", delim + 1);
-	this->serialNumber = s.substr(delim + 1, end - delim);
+	this->serialNumber = s.substr(delim + 1, end - delim - 1);
 
 	this->PIN = s.substr(end + 1);
 }

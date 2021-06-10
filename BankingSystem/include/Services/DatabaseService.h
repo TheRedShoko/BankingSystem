@@ -43,5 +43,9 @@ public:
 
 	void DepositBalance(Client* client, double amount);
 	void WithdrawBalance(Client* client, double amount);
+
+	Administrator* GetAdministratorByUsername(std::string username);
+	BankEmployee* GetEmployeeByUsername(std::string username);
+	Client* GetClientByCardNumber(std::string card);
 };
 

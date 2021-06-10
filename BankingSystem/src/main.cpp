@@ -1,7 +1,8 @@
-
-#include <iostream>
+#include "Commands/Invoker.h"
 
 int main()
 {
-    std::cout << "Hello World!\n";
+    Invoker inv;
+    inv.Listen();
+    
 }

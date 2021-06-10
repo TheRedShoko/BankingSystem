@@ -30,12 +30,13 @@ void IOService::ReadString(std::string message, std::string& inputVar)
 void IOService::ReadLine(std::string message, std::string& inputVar)
 {
 	IOService::Write(message + " ");
-	IOService::ReadString(inputVar);
+	IOService::ReadLine(inputVar);
 }
 
 void IOService::ReadDouble(double& var)
 {
 	IOService::input >> var;
+	IOService::input.ignore();
 }
 
 void IOService::ReadDouble(std::string message, double& var)

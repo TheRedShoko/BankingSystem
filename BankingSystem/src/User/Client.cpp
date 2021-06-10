@@ -26,7 +26,7 @@ Client::Client(std::string idn, std::string firstName, std::string middleName, s
 void Client::DepositAmount()
 {
 	double amount;
-	IOService::ReadDouble("Input amount to deposit: ", amount);
+	IOService::ReadDouble("Input amount to deposit:", amount);
 
 	this->dbContext->DepositBalance(this, amount);
 
@@ -36,16 +36,21 @@ void Client::DepositAmount()
 void Client::WithdrawAmount()
 {
 	double amount;
-	IOService::ReadDouble("Input amount to withdraw: ", amount);
+	IOService::ReadDouble("Input amount to withdraw:", amount);
 
 	this->dbContext->WithdrawBalance(this, amount);
 
-	IOService::WriteLine("Amount successfully added to your balance!");
+	IOService::WriteLine("Amount successfully withdrawn from your balance!");
 }
 
 void Client::CheckBalance()
 {
 	IOService::WriteLine("Available balance: " + std::to_string(this->loggedInAccount->amount));
+}
+
+std::string Client::ToEscapedString()
+{
+	return Person::ToEscapedString() + " " + std::to_string(this->totalNumberOfAccounts) + " " + std::to_string(this->totalNumberOfCards);
 }
 
 std::string Client::ToString()

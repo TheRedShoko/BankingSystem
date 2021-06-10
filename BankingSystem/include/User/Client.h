@@ -25,7 +25,7 @@ public:
     void CheckBalance();
 
 
-
+    std::string ToEscapedString() override;
     std::string ToString() override;
 };
 

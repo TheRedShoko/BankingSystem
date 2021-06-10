@@ -79,7 +79,7 @@ void DatabaseService::SaveClientsToFile()
 
 		std::string clientDataPath = this->clientsBankAccountsInformation + it->idn;
 
-		std::filesystem::create_directories(clientDataPath);
+		FileService::CreateFolder(clientDataPath);
 		FileService clientAccountsFile(clientDataPath + "/accounts.db", std::ios::out | std::ios::trunc);
 		FileService clientCardsFile(clientDataPath + "/cards.db", std::ios::out | std::ios::trunc);
 
@@ -117,6 +117,7 @@ void DatabaseService::SaveAdministratorsToFile()
 
 DatabaseService::~DatabaseService()
 {
+	FileService::CreateFolder(this->clientsBankAccountsInformation);
 	this->SaveAdministratorsToFile();
 	this->SaveEmployeesToFile();
 	this->SaveClientsToFile();
@@ -124,6 +125,7 @@ DatabaseService::~DatabaseService()
 
 DatabaseService::DatabaseService()
 {
+	FileService::CreateFolder(this->clientsBankAccountsInformation);
 	this->LoadAdministratorsFromFile();
 	this->LoadClientsFromFile();
 	this->LoadEmployeesFromFile();
@@ -387,4 +389,53 @@ void DatabaseService::WithdrawBalance(Client* client, double amount)
 	}
 
 	client->loggedInAccount->amount -= amount;
+}
+
+Administrator* DatabaseService::GetAdministratorByUsername(std::string username)
+{
+	for (auto it = this->admins.begin(); it < this->admins.end(); it++)
+	{
+		if (it->GetUsername() == username)
+		{
+			return &(*it);
+		}
+	}
+
+	return nullptr;
+}
+
+BankEmployee* DatabaseService::GetEmployeeByUsername(std::string username)
+{
+	for (auto it = this->employees.begin(); it < this->employees.end(); it++)
+	{
+		if (it->GetUsername() == username)
+		{
+			return &(*it);
+		}
+	}
+
+	return nullptr;
+}
+
+Client* DatabaseService::GetClientByCardNumber(std::string card)
+{
+	for (auto it = this->clients.begin(); it < this->clients.end(); it++)
+	{
+		for (auto jt = it->bankAccounts.begin(); jt < it->bankAccounts.end(); jt++)
+		{
+			for (auto kt = jt->cards.begin(); kt < jt->cards.end(); kt++)
+			{
+				if ((*kt) == card)
+				{
+					it->authorizationKey = card;
+					it->authorizationPassword = kt->PIN;
+					it->loggedInAccount = &(*jt);
+
+					return &(*it);
+				}
+			}
+		}
+	}
+
+	return nullptr;
 }

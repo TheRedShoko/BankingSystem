@@ -1,15 +1,20 @@
 #include "Services/FileService.h"
+#include <filesystem>
 
 FileService::FileService()
 {
 }
 
-FileService::FileService(std::string fileName) : file(fileName)
+FileService::FileService(std::string fileName)
 {
+	file.open(fileName, std::ios::out | std::ios::app);
+	file.close();
+	file.open(fileName);
 }
 
-FileService::FileService(std::string fileName, std::ios_base::openmode mode) : file(fileName, mode)
+FileService::FileService(std::string fileName, std::ios_base::openmode mode)
 {
+	file.open(fileName, mode);
 }
 
 FileService::~FileService()
@@ -18,6 +23,11 @@ FileService::~FileService()
 	{
 		this->file.close();
 	}
+}
+
+void FileService::CreateFolder(std::string folder)
+{
+	std::filesystem::create_directories(folder);
 }
 
 void FileService::ChangeOpenedFile(std::string fileName)

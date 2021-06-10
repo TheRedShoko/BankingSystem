@@ -19,8 +19,12 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="include\Commands\Help\UnloggedHelpCommand.h" />
+    <ClCompile Include="include\Commands\Login\LogoutCommand.h" />
     <ClCompile Include="src\BankCard.cpp" />
+    <ClCompile Include="src\Commands\Invoker.cpp" />
     <ClCompile Include="src\Services\IOService.cpp" />
+    <ClCompile Include="src\Services\LoginService.cpp" />
     <ClCompile Include="src\User\SystemAccount.cpp" />
     <ClCompile Include="src\Utils\Date.cpp" />
     <ClCompile Include="include\User\SystemAccount.h" />
@@ -37,7 +41,30 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\BankCard.h" />
+    <ClInclude Include="include\Commands\Help\AdminHelpCommand.h" />
+    <ClInclude Include="include\Commands\Help\ClientHelpCommand.h" />
+    <ClInclude Include="include\Commands\Help\EmployeeHelpCommand.h" />
+    <ClInclude Include="include\Commands\Help\HelpCommand.h" />
+    <ClInclude Include="include\Commands\Invoker.h" />
+    <ClInclude Include="include\Commands\LoggedIn\CheckBalanceCommand.h" />
+    <ClInclude Include="include\Commands\LoggedIn\CreateBankAccountCommand.h" />
+    <ClInclude Include="include\Commands\LoggedIn\CreateCardCommand.h" />
+    <ClInclude Include="include\Commands\LoggedIn\CreateClientCommand.h" />
+    <ClInclude Include="include\Commands\LoggedIn\CreateEmployeeCommand.h" />
+    <ClInclude Include="include\Commands\LoggedIn\DeleteBankAccountCommand.h" />
+    <ClInclude Include="include\Commands\LoggedIn\DeleteCardCommand.h" />
+    <ClInclude Include="include\Commands\LoggedIn\DeleteClientCommand.h" />
+    <ClInclude Include="include\Commands\LoggedIn\DeleteEmployeeCommand.h" />
+    <ClInclude Include="include\Commands\LoggedIn\DepositCommand.h" />
+    <ClInclude Include="include\Commands\LoggedIn\GetReportCommand.h" />
+    <ClInclude Include="include\Commands\LoggedIn\IndividualReportCommand.h" />
+    <ClInclude Include="include\Commands\LoggedIn\LoggedInCommand.h" />
+    <ClInclude Include="include\Commands\LoggedIn\WithdrawCommand.h" />
+    <ClInclude Include="include\Commands\Login\LoginAsAdminCommand.h" />
+    <ClInclude Include="include\Commands\Login\LoginAsClientCommand.h" />
+    <ClInclude Include="include\Commands\Login\LoginAsEmployeeCommand.h" />
     <ClInclude Include="include\Services\IOService.h" />
+    <ClInclude Include="include\Services\LoginService.h" />
     <ClInclude Include="include\Utils\Date.h" />
     <ClInclude Include="include\User\Client.h" />
     <ClInclude Include="include\User\BankEmployee.h" />

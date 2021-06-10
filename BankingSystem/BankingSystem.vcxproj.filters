@@ -69,6 +69,18 @@
     <ClCompile Include="src\User\SystemAccount.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="include\Commands\Help\UnloggedHelpCommand.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Commands\Invoker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="include\Commands\Login\LogoutCommand.h">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Services\LoginService.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Services\DatabaseService.h">
@@ -105,6 +117,75 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Utils\Validator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\Invoker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\Help\ClientHelpCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\Help\HelpCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\Help\AdminHelpCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\Help\EmployeeHelpCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\LoggedIn\LoggedInCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\LoggedIn\CreateEmployeeCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\LoggedIn\DeleteEmployeeCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\LoggedIn\CreateClientCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\LoggedIn\DeleteClientCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\LoggedIn\CreateBankAccountCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\LoggedIn\CreateCardCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\LoggedIn\DeleteBankAccountCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\LoggedIn\DeleteCardCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\LoggedIn\GetReportCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\LoggedIn\IndividualReportCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\LoggedIn\DepositCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\LoggedIn\WithdrawCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\LoggedIn\CheckBalanceCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\Login\LoginAsAdminCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\Login\LoginAsEmployeeCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Commands\Login\LoginAsClientCommand.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Services\LoginService.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

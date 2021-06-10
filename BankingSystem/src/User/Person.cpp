@@ -20,8 +20,8 @@ std::string Person::ToEscapedString()
 	return this->idn + " " + StringEscaper::EscapeSpaces(this->firstName) + " " 
 		+ StringEscaper::EscapeSpaces(this->middleName) + " " 
 		+ StringEscaper::EscapeSpaces(this->lastName) + " " 
-		+ this->birthDate.ToString()
-		+ this->phoneNumber + StringEscaper::EscapeSpaces(this->address);
+		+ this->birthDate.ToString() + " "
+		+ this->phoneNumber + " " + StringEscaper::EscapeSpaces(this->address);
 }
 
 std::string Person::GetIDN() const
