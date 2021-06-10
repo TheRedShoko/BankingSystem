@@ -6,6 +6,7 @@ class BankAccount
 {
 private:
 	friend class DatabaseService;
+	friend class Client;
 
 	std::string serialNumber;
 	double amount;

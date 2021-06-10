@@ -14,15 +14,17 @@ private:
     size_t totalNumberOfAccounts;
     size_t totalNumberOfCards;
 
+    BankAccount* loggedInAccount = nullptr;
     std::vector<BankAccount> bankAccounts;
 public:
     Client(std::string clientString);
     Client(std::string idn, std::string firstName, std::string middleName, std::string lastName, std::string dateOfBirth, std::string phoneNumber, std::string address);
-       
-    void AddBankAccount(BankAccount account);
-    void AddNewBankAccount(BankAccount account);
-    void AddCardToAccount(std::string account, BankCard card);
-    void AddNewCardToAccount(std::string account, BankCard card);
+
+    void DepositAmount();
+    void WithdrawAmount();
+    void CheckBalance();
+
+
 
     std::string ToString() override;
 };

@@ -18,7 +18,7 @@ void DatabaseService::LoadClientsFromFile()
 		{
 			BankAccount account(line);
 
-			client.AddBankAccount(account);
+			client.bankAccounts.push_back(account);
 		}
 
 		FileService clientCardsFile(clientDataPath + "/cards.db");
@@ -27,7 +27,13 @@ void DatabaseService::LoadClientsFromFile()
 		{
 			BankCard card(line);
 
-			client.AddCardToAccount(card.GetAccountNumber(), card);
+			for (auto jt = client.bankAccounts.begin(); jt < client.bankAccounts.end(); jt++)
+			{
+				if (*jt == card.accountNumber)
+				{
+					jt->AddCard(card);
+				}
+			}
 		}
 
 		this->clients.push_back(client);
@@ -206,7 +212,8 @@ std::string DatabaseService::AddBankAccount(std::string idn, double deposit)
 		if (it->GetIDN() == idn)
 		{
 			std::string accNumber = "00MYBANK" + it->idn.substr(6) + std::to_string(it->totalNumberOfAccounts);
-			it->AddNewBankAccount(BankAccount(accNumber, deposit));
+			it->bankAccounts.push_back(BankAccount(accNumber, deposit));
+			it->totalNumberOfAccounts++;
 
 			return accNumber;
 		}
@@ -263,6 +270,8 @@ std::string DatabaseService::AddCard(std::string idn, std::string account)
 					std::string cardNumber = "00" + it->idn.substr(6) + std::to_string(it->totalNumberOfCards);
 					std::string pin = generateFourDigitPIN();
 					jt->AddCard(BankCard(account, cardNumber, pin));
+					it->totalNumberOfCards++;
+
 					return cardNumber + " " + pin;
 				}
 			}
@@ -353,4 +362,29 @@ std::string DatabaseService::IndividualClientReport(std::string idn)
 	}
 
 	throw std::exception("Client with the given UID not found!");
+}
+
+void DatabaseService::DepositBalance(Client* client, double amount)
+{
+	if (amount <= 0)
+	{
+		throw std::exception("Invalid amount provided! Must be a positive number!");
+	}
+
+	client->loggedInAccount->amount += amount;
+}
+
+void DatabaseService::WithdrawBalance(Client* client, double amount)
+{
+	if (amount <= 0)
+	{
+		throw std::exception("Invalid amount provided! Must be a positive number!");
+	}
+
+	if (client->loggedInAccount->amount < amount)
+	{
+		throw std::exception("insufficient balance!");
+	}
+
+	client->loggedInAccount->amount -= amount;
 }

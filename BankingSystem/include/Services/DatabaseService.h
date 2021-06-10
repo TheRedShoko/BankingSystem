@@ -40,5 +40,8 @@ public:
 	void DeleteCard(std::string idn, std::string card);
 	std::string AllClientsReport();
 	std::string IndividualClientReport(std::string idn);
+
+	void DepositBalance(Client* client, double amount);
+	void WithdrawBalance(Client* client, double amount);
 };
 

@@ -1,4 +1,6 @@
 #include "User/Client.h"
+#include "Services/IOService.h"
+#include "Services/DatabaseService.h"
 #include <sstream>
 
 void Client::parseClientFromString(std::string s)
@@ -21,34 +23,29 @@ Client::Client(std::string idn, std::string firstName, std::string middleName, s
 	this->totalNumberOfCards = 0;
 }
 
-void Client::AddBankAccount(BankAccount account)
+void Client::DepositAmount()
 {
-	this->bankAccounts.push_back(account);
+	double amount;
+	IOService::ReadDouble("Input amount to deposit: ", amount);
+
+	this->dbContext->DepositBalance(this, amount);
+
+	IOService::WriteLine("Amount successfully added to your balance!");
 }
 
-void Client::AddNewBankAccount(BankAccount account)
+void Client::WithdrawAmount()
 {
-	this->totalNumberOfAccounts++;
-	this->AddBankAccount(account);
+	double amount;
+	IOService::ReadDouble("Input amount to withdraw: ", amount);
+
+	this->dbContext->WithdrawBalance(this, amount);
+
+	IOService::WriteLine("Amount successfully added to your balance!");
 }
 
-void Client::AddCardToAccount(std::string account, BankCard card)
+void Client::CheckBalance()
 {
-	for (size_t i = 0; i < this->bankAccounts.size(); i++)
-	{
-		if (this->bankAccounts[i] == account)
-		{
-			this->bankAccounts[i].AddCard(card);
-
-			break;
-		}
-	}
-}
-
-void Client::AddNewCardToAccount(std::string account, BankCard card)
-{
-	this->totalNumberOfCards++;
-	this->AddCardToAccount(account, card);
+	IOService::WriteLine("Available balance: " + std::to_string(this->loggedInAccount->amount));
 }
 
 std::string Client::ToString()
