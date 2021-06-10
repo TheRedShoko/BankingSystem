@@ -5,21 +5,21 @@ The project focuses on the implementation of banking software. The system has a 
 
 # Commands
 
-###Available for everyone
+### Available for everyone
 **help** - displays information for all available commands
 
-###Available when not logged in
+### Available when not logged in
 **loginAsClient** - log in as client
 **loginAsAdmin** - log in as system administrator");"logout - log out from the system
 **loginAsEmployee** - log in as bank employee");"deposit - deposit given amount in your current bank account
 
-###Available when logged in as client
+### Available when logged in as client
 **deposit** - deposit given amount in your current bank account
 **withdraw** - withdraw from your current bank account
 **checkBalance** - check the balance in your current bank account
 **logout** - log out from the system
 
-###Available when logged in as employee
+### Available when logged in as employee
 **createClient** - registers new client to the system
 **deleteClient** - deletes client from the system
 **createBankAccount** - creates new bank account to existing client
@@ -30,7 +30,7 @@ The project focuses on the implementation of banking software. The system has a 
 **individualReport** - gives all information about given client
 **logout** - log out from the system
 
-###Available when logged in as admin
+### Available when logged in as admin
 **createEmployee** - registers new employee to the system
 **deleteEmployee** - deletes employee from the system
 **logout** - log out from the system
