@@ -4,20 +4,20 @@
 #include "Services/DatabaseService.h"
 
 
-void Administrator::parseFromString(std::string s)
+void Administrator::parseFromString(const std::string& s)
 {
 	size_t delim = s.find(" ");
 	this->authorizationKey = s.substr(0, delim);
 	this->authorizationPassword = s.substr(delim + 1);
 }
 
-Administrator::Administrator(std::string username, std::string password)
+Administrator::Administrator(const std::string& username, const std::string& password)
 {
 	this->authorizationKey = username;
 	this->authorizationPassword = password;
 }
 
-Administrator::Administrator(std::string from_string)
+Administrator::Administrator(const std::string& from_string)
 {
 	this->parseFromString(from_string);
 }

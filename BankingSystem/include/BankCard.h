@@ -9,15 +9,15 @@ private:
 	std::string serialNumber;
 	std::string PIN;
 
-	void parseFromString(std::string s);
+	void parseFromString(const std::string& s);
 public:
-	BankCard(std::string account, std::string serialNumber, std::string PIN);
-	BankCard(std::string from_string);
+	BankCard(const std::string& account, const std::string& serialNumber, const std::string& PIN);
+	BankCard(const std::string& from_string);
 
 	bool operator==(const std::string& other) const;
 	bool operator==(const BankCard& other) const;
 
-	std::string GetAccountNumber() const;
+	const std::string& GetAccountNumber() const;
 
 	std::string ToString() const;
 };

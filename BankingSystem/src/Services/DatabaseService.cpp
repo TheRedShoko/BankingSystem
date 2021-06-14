@@ -131,7 +131,7 @@ DatabaseService::DatabaseService()
 	this->LoadEmployeesFromFile();
 }
 
-void DatabaseService::AddAdministrator(std::string username, std::string password)
+void DatabaseService::AddAdministrator(const std::string& username, const std::string& password)
 {
 	for (auto it = this->admins.begin(); it < this->admins.end(); it++)
 	{
@@ -145,7 +145,7 @@ void DatabaseService::AddAdministrator(std::string username, std::string passwor
 	this->admins.push_back(Administrator(username, password));
 }
 
-void DatabaseService::AddEmployee(std::string username, std::string password, std::string idn, std::string firstName, std::string middleName, std::string lastName, std::string dateOfBirth, std::string phoneNumber, std::string address)
+void DatabaseService::AddEmployee(const std::string& username, const std::string& password, const std::string& idn, const std::string& firstName, const std::string& middleName, const std::string& lastName, const std::string& dateOfBirth, const std::string& phoneNumber, const std::string& address)
 {
 	for (auto it = this->employees.begin(); it < this->employees.end(); it++)
 	{
@@ -165,7 +165,7 @@ void DatabaseService::AddEmployee(std::string username, std::string password, st
 	this->employees.push_back(employee);
 }
 
-void DatabaseService::DeleteEmployee(std::string idn)
+void DatabaseService::DeleteEmployee(const std::string& idn)
 {
 	for (auto it = this->employees.begin(); it < this->employees.end(); it++)
 	{
@@ -179,7 +179,7 @@ void DatabaseService::DeleteEmployee(std::string idn)
 	throw std::exception("Employee with the given IDN not found!");
 }
 
-void DatabaseService::AddClient(std::string idn, std::string firstName, std::string middleName, std::string lastName, std::string dateOfBirth, std::string phoneNumber, std::string address)
+void DatabaseService::AddClient(const std::string& idn, const std::string& firstName, const std::string& middleName, const std::string& lastName, const std::string& dateOfBirth, const std::string& phoneNumber, const std::string& address)
 {
 	for (auto it = this->clients.begin(); it < this->clients.end(); it++)
 	{
@@ -193,7 +193,7 @@ void DatabaseService::AddClient(std::string idn, std::string firstName, std::str
 	this->clients.push_back(client);
 }
 
-void DatabaseService::DeleteClient(std::string idn)
+void DatabaseService::DeleteClient(const std::string& idn)
 {
 	for (auto it = this->clients.begin(); it < this->clients.end(); it++)
 	{
@@ -207,11 +207,11 @@ void DatabaseService::DeleteClient(std::string idn)
 	throw std::exception("Client with the given IDN not found!");
 }
 
-std::string DatabaseService::AddBankAccount(std::string idn, double deposit)
+std::string DatabaseService::AddBankAccount(const std::string& idn, double deposit)
 {
 	for (auto it = this->clients.begin(); it < this->clients.end(); it++)
 	{
-		if (it->GetIDN() == idn)
+		if (it->idn == idn)
 		{
 			std::string accNumber = "00MYBANK" + it->idn.substr(6) + std::to_string(it->totalNumberOfAccounts);
 			it->bankAccounts.push_back(BankAccount(accNumber, deposit));
@@ -224,7 +224,7 @@ std::string DatabaseService::AddBankAccount(std::string idn, double deposit)
 	throw std::exception("Client with the given IDN not found!");
 }
 
-void DatabaseService::DeleteBankAccount(std::string idn, std::string account)
+void DatabaseService::DeleteBankAccount(const std::string& idn, const std::string& account)
 {
 	for (auto it = this->clients.begin(); it < this->clients.end(); it++)
 	{
@@ -259,7 +259,7 @@ std::string generateFourDigitPIN()
 	return result;
 }
 
-std::string DatabaseService::AddCard(std::string idn, std::string account)
+std::string DatabaseService::AddCard(const std::string& idn, const std::string& account)
 {
 	for (auto it = this->clients.begin(); it < this->clients.end(); it++)
 	{
@@ -285,7 +285,7 @@ std::string DatabaseService::AddCard(std::string idn, std::string account)
 	throw std::exception("Client with the given UID not found!");
 }
 
-void DatabaseService::DeleteCard(std::string idn, std::string card)
+void DatabaseService::DeleteCard(const std::string& idn, const std::string& card)
 {
 	for (auto it = this->clients.begin(); it < this->clients.end(); it++)
 	{
@@ -330,7 +330,7 @@ std::string roundAndCastToString(double a)
 	return ss.str();
 }
 
-std::string DatabaseService::IndividualClientReport(std::string idn)
+std::string DatabaseService::IndividualClientReport(const std::string& idn)
 {
 	for (auto it = this->clients.begin(); it < this->clients.end(); it++)
 	{
@@ -391,7 +391,7 @@ void DatabaseService::WithdrawBalance(Client* client, double amount)
 	client->loggedInAccount->amount -= amount;
 }
 
-Administrator* DatabaseService::GetAdministratorByUsername(std::string username)
+Administrator* DatabaseService::GetAdministratorByUsername(const std::string& username)
 {
 	for (auto it = this->admins.begin(); it < this->admins.end(); it++)
 	{
@@ -404,7 +404,7 @@ Administrator* DatabaseService::GetAdministratorByUsername(std::string username)
 	return nullptr;
 }
 
-BankEmployee* DatabaseService::GetEmployeeByUsername(std::string username)
+BankEmployee* DatabaseService::GetEmployeeByUsername(const std::string& username)
 {
 	for (auto it = this->employees.begin(); it < this->employees.end(); it++)
 	{
@@ -417,7 +417,7 @@ BankEmployee* DatabaseService::GetEmployeeByUsername(std::string username)
 	return nullptr;
 }
 
-Client* DatabaseService::GetClientByCardNumber(std::string card)
+Client* DatabaseService::GetClientByCardNumber(const std::string& card)
 {
 	for (auto it = this->clients.begin(); it < this->clients.end(); it++)
 	{

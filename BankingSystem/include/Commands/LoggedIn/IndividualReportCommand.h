@@ -5,7 +5,7 @@
 class IndividualReportCommand : public LoggedInCommand
 {
 public:
-	virtual std::string GetCommandName() { return "individualReport"; }
+	IndividualReportCommand() : LoggedInCommand("individualReport") {};
 	virtual void execute(SystemAccount* acc)
 	{
 		BankEmployee* emp = dynamic_cast<BankEmployee*>(acc);

@@ -13,10 +13,10 @@ private:
 
 	std::vector<BankCard> cards;
 
-	void parseAccountFromString(std::string s);
+	void parseAccountFromString(const std::string& s);
 public:
-	BankAccount(std::string accNumber, double amount);
-	BankAccount(std::string account_as_string);
+	BankAccount(const std::string& accNumber, double amount);
+	BankAccount(const std::string& account_as_string);
 
 	bool operator==(const std::string& other) const;
 	bool operator==(const BankAccount& other) const;

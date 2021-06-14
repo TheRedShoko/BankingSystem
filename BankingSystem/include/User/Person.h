@@ -17,10 +17,9 @@ protected:
 	Person() = default;
 public:
 	virtual ~Person() = default;
-	Person(std::string idn, std::string firstName, std::string middleName, std::string lastName, std::string dateOfBirth, std::string phone, std::string address);
+	Person(const std::string& idn, const std::string& firstName, const std::string& middleName, const std::string& lastName, const std::string& dateOfBirth, const std::string& phone, const std::string& address);
 	
 	virtual std::string ToString();
 	virtual std::string ToEscapedString();
-	std::string GetIDN() const;
+	const std::string& GetIDN() const;
 };
-

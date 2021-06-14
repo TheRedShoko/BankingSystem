@@ -1,6 +1,6 @@
 #include "Utils\Validator.h"
 
-bool Validator::IsValidIDN(std::string idn)
+bool Validator::IsValidIDN(const std::string& idn)
 {
     if (idn.length() != 10)
     {

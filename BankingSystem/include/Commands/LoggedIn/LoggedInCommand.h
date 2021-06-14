@@ -4,6 +4,7 @@
 class LoggedInCommand
 {
 public:
-	virtual std::string GetCommandName() = 0;
+	LoggedInCommand(const char* name) : commandName(name) {};
+	const std::string commandName;
 	virtual void execute(SystemAccount* acc) = 0;
 };

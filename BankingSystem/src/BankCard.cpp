@@ -1,6 +1,6 @@
 #include "BankCard.h"
 
-void BankCard::parseFromString(std::string s)
+void BankCard::parseFromString(const std::string& s)
 {
 	size_t delim = s.find(" ");
 	this->accountNumber = s.substr(0, delim);
@@ -10,12 +10,12 @@ void BankCard::parseFromString(std::string s)
 	this->PIN = s.substr(end + 1);
 }
 
-BankCard::BankCard(std::string account, std::string serialNumber, std::string PIN)
+BankCard::BankCard(const std::string& account, const std::string& serialNumber, const std::string& PIN)
 	: accountNumber(account), serialNumber(serialNumber), PIN(PIN)
 {
 }
 
-BankCard::BankCard(std::string from_string)
+BankCard::BankCard(const std::string& from_string)
 {
 	this->parseFromString(from_string);
 }
@@ -30,7 +30,7 @@ bool BankCard::operator==(const BankCard& other) const
 	return this->serialNumber == other.serialNumber;
 }
 
-std::string BankCard::GetAccountNumber() const
+const std::string& BankCard::GetAccountNumber() const
 {
 	return this->accountNumber;
 }

@@ -5,7 +5,7 @@
 class CheckBalanceCommand : public LoggedInCommand
 {
 public:
-	virtual std::string GetCommandName() { return "checkBalance"; }
+	CheckBalanceCommand() : LoggedInCommand("checkBalance") {};
 	virtual void execute(SystemAccount* acc) 
 	{
 		Client* cl = dynamic_cast<Client*>(acc);

@@ -3,7 +3,7 @@
 #include "Services/IOService.h"
 #include "Services/DatabaseService.h"
 
-void BankEmployee::parseFromString(std::string s)
+void BankEmployee::parseFromString(const std::string& s)
 {
 	std::stringstream stream(s);
 	std::string bDay;
@@ -12,12 +12,12 @@ void BankEmployee::parseFromString(std::string s)
 	this->birthDate.SetDateFromString(bDay);
 }
 
-BankEmployee::BankEmployee(std::string from_string)
+BankEmployee::BankEmployee(const std::string& from_string)
 {
 	this->parseFromString(from_string);
 }
 
-BankEmployee::BankEmployee(std::string username, std::string password, std::string idn, std::string firstName, std::string middleName, std::string lastName, std::string dateOfBirth, std::string phoneNumber, std::string address)
+BankEmployee::BankEmployee(const std::string& username, const std::string& password, const std::string& idn, const std::string& firstName, const std::string& middleName, const std::string& lastName, const std::string& dateOfBirth, const std::string& phoneNumber, const std::string& address)
 	:SystemAccount(username, password), Person(idn, firstName, middleName, lastName, dateOfBirth, phoneNumber, address)
 {
 }

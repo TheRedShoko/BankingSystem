@@ -5,7 +5,7 @@
 class CreateEmployeeCommand : public LoggedInCommand
 {
 public:
-	virtual std::string GetCommandName() { return "createEmployee"; }
+	CreateEmployeeCommand() : LoggedInCommand("createEmployee") {};
 	virtual void execute(SystemAccount* acc)
 	{
 		Administrator* adm = dynamic_cast<Administrator*>(acc);

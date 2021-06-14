@@ -5,7 +5,7 @@
 class CreateBankAccountCommand : public LoggedInCommand
 {
 public:
-	virtual std::string GetCommandName() { return "createBankAccount"; }
+	CreateBankAccountCommand() : LoggedInCommand("createBankAccount") {};
 	virtual void execute(SystemAccount* acc)
 	{
 		BankEmployee* emp = dynamic_cast<BankEmployee*>(acc);

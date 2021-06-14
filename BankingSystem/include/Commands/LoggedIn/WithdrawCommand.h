@@ -5,7 +5,7 @@
 class WithdrawCommand : public LoggedInCommand
 {
 public:
-	virtual std::string GetCommandName() { return "withdraw"; }
+	WithdrawCommand() : LoggedInCommand("withdraw") {};
 	virtual void execute(SystemAccount* acc)
 	{
 		Client* cl = dynamic_cast<Client*>(acc);

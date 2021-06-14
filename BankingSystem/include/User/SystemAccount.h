@@ -13,8 +13,8 @@ protected:
 public:
 	virtual ~SystemAccount() = default;
 	SystemAccount() = default;
-	SystemAccount(std::string username, std::string password);
+	SystemAccount(const std::string& username, const std::string& password);
 	void InjectDbService(DatabaseService* service);
-	std::string GetUsername() const;
-	std::string GetPassword() const;
+	const std::string& GetUsername() const;
+	const std::string& GetPassword() const;
 };

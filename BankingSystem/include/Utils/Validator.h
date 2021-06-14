@@ -4,6 +4,6 @@
 class Validator
 {
 public:
-	static bool IsValidIDN(std::string idn);
+	static bool IsValidIDN(const std::string& idn);
 	static bool IsValidDate(unsigned int year, unsigned short month, unsigned short date);
 };

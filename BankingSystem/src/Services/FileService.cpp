@@ -5,14 +5,14 @@ FileService::FileService()
 {
 }
 
-FileService::FileService(std::string fileName)
+FileService::FileService(const std::string& fileName)
 {
 	file.open(fileName, std::ios::out | std::ios::app);
 	file.close();
 	file.open(fileName);
 }
 
-FileService::FileService(std::string fileName, std::ios_base::openmode mode)
+FileService::FileService(const std::string& fileName, std::ios_base::openmode mode)
 {
 	file.open(fileName, mode);
 }
@@ -25,12 +25,12 @@ FileService::~FileService()
 	}
 }
 
-void FileService::CreateFolder(std::string folder)
+void FileService::CreateFolder(const std::string& folder)
 {
 	std::filesystem::create_directories(folder);
 }
 
-void FileService::ChangeOpenedFile(std::string fileName)
+void FileService::ChangeOpenedFile(const std::string& fileName)
 {
 	if (this->file.is_open())
 	{
@@ -78,7 +78,7 @@ bool FileService::ReadNextLine(std::string& output)
 	return true;
 }
 
-void FileService::WriteLine(std::string line)
+void FileService::WriteLine(const std::string& line)
 {
 	if (!file)
 	{

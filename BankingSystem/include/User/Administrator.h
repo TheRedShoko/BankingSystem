@@ -2,17 +2,16 @@
 #include "SystemAccount.h"
 #include "User/BankEmployee.h"
 
-class Administrator : public virtual SystemAccount
+class Administrator : public SystemAccount
 {
-	void parseFromString(std::string s);
+	void parseFromString(const std::string& s);
 public:
 	Administrator() = default;
-	Administrator(std::string username, std::string password);
-	Administrator(std::string from_string);
+	Administrator(const std::string& username, const std::string& password);
+	Administrator(const std::string& from_string);
 
 	void CreateEmployee() const;
 	void DeleteEmployee() const;
 
 	std::string ToString() const;
 };
-

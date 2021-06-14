@@ -2,12 +2,12 @@
 #include "Person.h"
 #include "SystemAccount.h"
 
-class BankEmployee : public virtual Person, public virtual SystemAccount
+class BankEmployee : public Person, public SystemAccount
 {
-	void parseFromString(std::string s);
+	void parseFromString(const std::string& s);
 public:
-	BankEmployee(std::string from_string);
-	BankEmployee(std::string username, std::string password, std::string idn, std::string firstName, std::string middleName, std::string lastName, std::string dateOfBirth, std::string phoneNumber, std::string address);
+	BankEmployee(const std::string& from_string);
+	BankEmployee(const std::string& username, const std::string& password, const std::string& idn, const std::string& firstName, const std::string& middleName, const std::string& lastName, const std::string& dateOfBirth, const std::string& phoneNumber, const std::string& address);
 
 	void CreateClient();
 	void DeleteClient();

@@ -1,18 +1,18 @@
 #include "BankAccount.h"
 
-void BankAccount::parseAccountFromString(std::string s)
+void BankAccount::parseAccountFromString(const std::string& s)
 {
 	size_t delim = s.find(" ");
 	this->serialNumber = s.substr(0, delim);
 	this->amount = std::stod(s.substr(delim + 1));
 }
 
-BankAccount::BankAccount(std::string accNumber, double amount)
+BankAccount::BankAccount(const std::string& accNumber, double amount)
 	:serialNumber(accNumber), amount(amount)
 {
 }
 
-BankAccount::BankAccount(std::string account_as_string)
+BankAccount::BankAccount(const std::string& account_as_string)
 {
 	this->parseAccountFromString(account_as_string);
 }

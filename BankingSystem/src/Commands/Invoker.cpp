@@ -59,7 +59,7 @@ void Invoker::Listen()
 				{
 					for (auto it = this->allowedCommands.begin(); it < this->allowedCommands.end(); it++)
 					{
-						if ((*it)->GetCommandName() == input)
+						if ((*it)->commandName == input)
 						{
 							(*it)->execute(this->currentAccount);
 							break;

@@ -3,7 +3,7 @@
 #include "Services/DatabaseService.h"
 #include <sstream>
 
-void Client::parseClientFromString(std::string s)
+void Client::parseClientFromString(const std::string& s)
 {
 	std::stringstream stream(s);
 	std::string bDay;
@@ -11,12 +11,12 @@ void Client::parseClientFromString(std::string s)
 	this->birthDate.SetDateFromString(bDay);
 }
 
-Client::Client(std::string clientString)
+Client::Client(const std::string& clientString)
 {
 	this->parseClientFromString(clientString);
 }
 
-Client::Client(std::string idn, std::string firstName, std::string middleName, std::string lastName, std::string dateOfBirth, std::string phoneNumber, std::string address)
+Client::Client(const std::string& idn, const std::string& firstName, const std::string& middleName, const std::string& lastName, const std::string& dateOfBirth, const std::string& phoneNumber, const std::string& address)
 	:Person(idn, firstName, middleName, lastName, dateOfBirth, phoneNumber, address)
 {
 	this->totalNumberOfAccounts = 0;

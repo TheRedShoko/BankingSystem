@@ -1,7 +1,7 @@
 #include "Utils\Date.h"
 #include "Utils\Validator.h"
 
-void Date::parseDate(std::string date_as_string)
+void Date::parseDate(const std::string& date_as_string)
 {
     unsigned short date, month;
     unsigned int year;
@@ -37,12 +37,12 @@ Date::Date(unsigned int year, unsigned short month, unsigned short date)
     this->date = date;
 }
 
-Date::Date(std::string date_as_string)
+Date::Date(const std::string& date_as_string)
 {
     this->parseDate(date_as_string);
 }
 
-void Date::SetDateFromString(std::string date)
+void Date::SetDateFromString(const std::string& date)
 {
     this->parseDate(date);
 }

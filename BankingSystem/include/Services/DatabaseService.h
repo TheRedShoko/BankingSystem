@@ -27,25 +27,25 @@ public:
 	~DatabaseService();
 	DatabaseService();
 	
-	void AddAdministrator(std::string username, std::string password);
+	void AddAdministrator(const std::string& username, const std::string& password);
 
-	void AddEmployee(std::string username, std::string password, std::string idn, std::string firstName, std::string middleName, std::string lastName, std::string dateOfBirth, std::string phoneNumber, std::string address);
-	void DeleteEmployee(std::string idn);
+	void AddEmployee(const std::string& username, const std::string& password, const std::string& idn, const std::string& firstName, const std::string& middleName, const std::string& lastName, const std::string& dateOfBirth, const std::string& phoneNumber, const std::string& address);
+	void DeleteEmployee(const std::string& idn);
 
-	void AddClient(std::string idn, std::string firstName, std::string middleName, std::string lastName, std::string dateOfBirth, std::string phoneNumber, std::string address);
-	void DeleteClient(std::string idn);
-	std::string AddBankAccount(std::string idn, double deposit);
-	void DeleteBankAccount(std::string idn, std::string account);
-	std::string AddCard(std::string idn, std::string account);
-	void DeleteCard(std::string idn, std::string card);
+	void AddClient(const std::string& idn, const std::string& firstName, const std::string& middleName, const std::string& lastName, const std::string& dateOfBirth, const std::string& phoneNumber, const std::string& address);
+	void DeleteClient(const std::string& idn);
+	std::string AddBankAccount(const std::string& idn, double deposit);
+	void DeleteBankAccount(const std::string& idn, const std::string& account);
+	std::string AddCard(const std::string& idn, const std::string& account);
+	void DeleteCard(const std::string& idn, const std::string& card);
 	std::string AllClientsReport();
-	std::string IndividualClientReport(std::string idn);
+	std::string IndividualClientReport(const std::string& idn);
 
 	void DepositBalance(Client* client, double amount);
 	void WithdrawBalance(Client* client, double amount);
 
-	Administrator* GetAdministratorByUsername(std::string username);
-	BankEmployee* GetEmployeeByUsername(std::string username);
-	Client* GetClientByCardNumber(std::string card);
+	Administrator* GetAdministratorByUsername(const std::string& username);
+	BankEmployee* GetEmployeeByUsername(const std::string& username);
+	Client* GetClientByCardNumber(const std::string& card);
 };
 

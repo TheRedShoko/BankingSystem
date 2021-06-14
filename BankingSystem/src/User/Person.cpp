@@ -1,7 +1,7 @@
 #include "User/Person.h"
 #include "Utils/Validator.h"
 
-Person::Person(std::string idn, std::string firstName, std::string middleName, std::string lastName, std::string dateOfBirth, std::string phone, std::string address)
+Person::Person(const std::string& idn, const std::string& firstName, const std::string& middleName, const std::string& lastName, const std::string& dateOfBirth, const std::string& phone, const std::string& address)
 	:idn(idn), firstName(firstName), middleName(middleName), lastName(lastName), birthDate(dateOfBirth), phoneNumber(phone), address(address)
 {
 	if (!Validator::IsValidIDN(idn))
@@ -24,7 +24,7 @@ std::string Person::ToEscapedString()
 		+ this->phoneNumber + " " + StringEscaper::EscapeSpaces(this->address);
 }
 
-std::string Person::GetIDN() const
+const std::string& Person::GetIDN() const
 {
 	return this->idn;
 }

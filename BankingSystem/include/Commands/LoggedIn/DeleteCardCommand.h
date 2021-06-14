@@ -5,7 +5,7 @@
 class DeleteCardCommand : public LoggedInCommand
 {
 public:
-	virtual std::string GetCommandName() { return "deleteCard"; }
+	DeleteCardCommand() : LoggedInCommand("deleteCard") {};
 	virtual void execute(SystemAccount* acc)
 	{
 		BankEmployee* emp = dynamic_cast<BankEmployee*>(acc);

@@ -4,12 +4,12 @@
 #include "BankAccount.h"
 
 class Client :
-    public virtual Person, public virtual SystemAccount
+    public Person, public SystemAccount
 {
 private:
     friend class DatabaseService;
     
-    void parseClientFromString(std::string s);
+    void parseClientFromString(const std::string& s);
 
     size_t totalNumberOfAccounts;
     size_t totalNumberOfCards;
@@ -17,8 +17,8 @@ private:
     BankAccount* loggedInAccount = nullptr;
     std::vector<BankAccount> bankAccounts;
 public:
-    Client(std::string clientString);
-    Client(std::string idn, std::string firstName, std::string middleName, std::string lastName, std::string dateOfBirth, std::string phoneNumber, std::string address);
+    Client(const std::string& clientString);
+    Client(const std::string& idn, const std::string& firstName, const std::string& middleName, const std::string& lastName, const std::string& dateOfBirth, const std::string& phoneNumber, const std::string& address);
 
     void DepositAmount();
     void WithdrawAmount();

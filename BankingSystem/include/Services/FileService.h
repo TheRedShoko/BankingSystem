@@ -8,13 +8,13 @@ private:
 	std::fstream file;
 public:
 	FileService();
-	FileService(std::string fileName);
-	FileService(std::string fileName, std::ios_base::openmode mode);
+	FileService(const std::string& fileName);
+	FileService(const std::string& fileName, std::ios_base::openmode mode);
 	~FileService();
-	static void CreateFolder(std::string folder);
-	void ChangeOpenedFile(std::string fileName);
+	static void CreateFolder(const std::string& folder);
+	void ChangeOpenedFile(const std::string& fileName);
 	std::string ReadLine(unsigned int lineNumber);
 	bool ReadNextLine(std::string& output);
-	void WriteLine(std::string line);
+	void WriteLine(const std::string& line);
 };
 
